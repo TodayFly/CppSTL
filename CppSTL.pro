@@ -10,3 +10,6 @@ SOURCES += main.cpp \
 HEADERS += \
     myAllocator.h \
     iteratorandtraits.h
+
+DISTFILES += \
+    Readme.txt
