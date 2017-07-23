@@ -1,6 +1,8 @@
 #ifndef ITERATORANDTRAITS_H
 #define ITERATORANDTRAITS_H
 
+
+#include <cstddef>
 // simple auto_ptr
 template<class T> class Auto_ptr{
 private:
@@ -31,7 +33,7 @@ public:
     T& operator*() const {return *ptr;}
 };
 template <class I> typename I::value_type  getv(I itr) { return *itr; }
-// 解决原生指针的情况
+// 解决原生指针的情况例子
 template <class I> struct MyIter_traits{//traits意为特性
     typedef typename I::value_type value_type;// 迭代器为类的情况
     typedef typename I::iterator_category iterator_category; //与STL统一
@@ -41,13 +43,19 @@ template <class I> struct MyIter_traits{//traits意为特性
 };
 template <class T> struct MyIter_traits<T*>{
     typedef T value_type; //偏特化-迭代器为原生指针
+    typedef ptrdiff_t difference_type;
+    typedef T* pointer;
+    typedef T& reference;
 };
 template <class T> struct MyIter_traits<const T*>{
     typedef T value_type; //迭代器为指向常数时，萃取出来型别是T而非const T
+    typedef ptrdiff_t difference_type;
+    typedef const T* pointer;
+    typedef const T& reference;
 };
-template <class I>
+template <class I> // 使用时
 typename MyIter_traits<I>::value_type getv2(I itr) {return *itr;}
-//
+
 
 
 
