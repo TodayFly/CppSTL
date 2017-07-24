@@ -4,9 +4,10 @@ using namespace std;
 
 void TestFun();
 void iteratorandtraitsFun();
+void basicF();
 int main()
 {
-    char c='i',tmp=' ';
+    char c='b',tmp=' ';
     while (c!='Q' && c!='q') {
         switch (c) {
         case 't':
@@ -16,6 +17,8 @@ int main()
         case 'i':
             iteratorandtraitsFun();
             break;
+        case 'b':
+            basicF();
         default:
             std::cout<<"default\n";
             break;

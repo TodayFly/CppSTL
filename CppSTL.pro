@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     test.cpp \
-    iteratorandtraits.cpp
+    iteratorandtraits.cpp \
+    basic.cpp
 
 HEADERS += \
     myAllocator.h \
